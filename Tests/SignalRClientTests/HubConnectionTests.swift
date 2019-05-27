@@ -944,6 +944,8 @@ class TestHubConnectionDelegate: HubConnectionDelegate {
 }
 
 class TestConnection: Connection {
+    var connectionId: String?
+
     var delegate: ConnectionDelegate!
     var sendDelegate: ((_ data: Data, _ sendDidComplete: (_ error: Error?) -> Void) -> Void)?
 
