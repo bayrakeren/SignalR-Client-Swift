@@ -32,6 +32,10 @@ class HandshakeProtocol {
                 if handshakeResponseJson.count == 1, let errorMessage = handshakeResponseJson["error"] as? String {
                     return SignalRError.handshakeError(message: errorMessage)
                 }
+                
+                if handshakeResponseJson.count == 1, handshakeResponseJson["minorVersion"] != nil {
+                    return nil
+                }
             }
         } catch {
             return error
